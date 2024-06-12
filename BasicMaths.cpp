@@ -82,11 +82,21 @@ void isArmstrong(int n)
     }
 }
 
+void printDivisor(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            std::cout << i << " " << std::endl;
+        }
+    }
+}
 int main()
 {
-    int num;
-    std::cout << "enter the number" << std::endl;
-    std::cin >> num;
-    isArmstrong(num);
+    int number;
+    std::cout << "Enter the number";
+    std::cin >> number;
+    printDivisor(number);
     return 0;
 }
