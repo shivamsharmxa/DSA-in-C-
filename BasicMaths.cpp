@@ -1,6 +1,5 @@
 #include <iostream>
 
-// Function definition
 // Count the number of digits
 int count(int n)
 {
@@ -26,15 +25,35 @@ int Reverse(int n)
     return ReversedNum;
 }
 
+#include <iostream>
+
+void Palindrome(int n)
+{
+    int reversedNum = 0;
+    int Number = n;
+
+    while (n > 0)
+    {
+        int digit = n % 10;
+        reversedNum = reversedNum * 10 + digit;
+        n = n / 10;
+    }
+
+    if (reversedNum == Number)
+    {
+        std::cout << "It's a palindrome" << std::endl;
+    }
+    else
+    {
+        std::cout << "It's not a palindrome" << std::endl;
+    }
+}
+
 int main()
 {
-    // Call the count function and store the result
-    int result = count(156);
-    int Reversed = Reverse(4567);
-
-    // Print the results
-    std::cout << "The number of digits in 156 is: " << result << std::endl;
-    std::cout << "The reversed number of 4567 is: " << Reversed << std::endl;
-
+    int num;
+    std::cout << "Enter a number: ";
+    std::cin >> num;
+    Palindrome(num);
     return 0;
 }
