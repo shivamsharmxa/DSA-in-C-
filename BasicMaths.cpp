@@ -49,11 +49,44 @@ void Palindrome(int n)
     }
 }
 
+// Armstrong Number
+void isArmstrong(int n)
+{
+    int originalNum = n;
+    int NumDigits = 0;
+    int sum = 0;
+
+    int temp = n;
+    while (temp > 0)
+    {
+        NumDigits++;
+        temp = temp / 10;
+    }
+
+    // calculate the sum of the digits
+    temp = n;
+    while (temp > 0)
+    {
+        int digit = temp % 10;
+        sum += std::pow(digit, NumDigits);
+        temp = temp / 10;
+    }
+    // Check if the sum is equal to the original number
+    if (sum == originalNum)
+    {
+        std::cout << "It's an Armstrong number" << std::endl;
+    }
+    else
+    {
+        std::cout << "It's not an Armstrong number" << std::endl;
+    }
+}
+
 int main()
 {
     int num;
-    std::cout << "Enter a number: ";
+    std::cout << "enter the number" << std::endl;
     std::cin >> num;
-    Palindrome(num);
+    isArmstrong(num);
     return 0;
 }
