@@ -17,9 +17,18 @@ void print()
     cnt++;
     print();
 }
+// Printing Name n times
+void print2(int i, int n)
+{
+    // Base condition
+    if (i > n)
+        return;
+    cout << "shivam" << endl;
+    print2(i + 1, n);
+}
 
 int main()
 {
-    print();
+    print2(1, 5);
     return 0;
 }
