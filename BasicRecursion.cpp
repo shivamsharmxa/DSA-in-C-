@@ -1,8 +1,6 @@
 #include <iostream>
 #include <vector>
 
-#include <iostream>
-
 using namespace std;
 
 int cnt = 0;
