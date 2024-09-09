@@ -14,14 +14,14 @@ int LargestNumber(int arr[], int n)
     return largest;
 }
 
-// int main()
-// {
-//     int arr[] = {12, 23, 54, 28, 67};
-//     int n = sizeof(arr) / sizeof(arr[0]);
+int main()
+{
+    int arr[] = {12, 23, 54, 28, 67};
+    int n = sizeof(arr) / sizeof(arr[0]);
 
-//     std::cout << "The largest number is " << LargestNumber(arr, n) << std::endl; // Output the largest number
-//     return 0;
-// }
+    std::cout << "The largest number is " << LargestNumber(arr, n) << std::endl; // Output the largest number
+    return 0;
+}
 
 // Second largest Number in Array
 int SlargestNumber(int arr[], int n)
