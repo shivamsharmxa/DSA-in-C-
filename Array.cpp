@@ -30,3 +30,40 @@ int main()
 
     return 0;
 }
+
+// find minimum value in Array
+
+int main()
+{
+
+    int arr[5] = {23, 45, 67, 54, 78};
+    int ans = INT_MAX;
+
+    // Min Value
+    for (int i = 0; i < 5; i++)
+    {
+        if (arr[i] < ans)
+
+            ans = arr[i];
+    }
+    cout << ans;
+    return 0;
+}
+
+// Max number in the array
+
+int main()
+{
+    int arr[5] = {45, 76, 90, 12, 32};
+    int ans = INT_MIN;
+
+    // Max value
+    for (int i = 0; i < 5; i++)
+    {
+        if (arr[i] > ans)
+            ;
+        ans = arr[i];
+    }
+    cout << ans;
+    return 0;
+}
