@@ -1,17 +1,6 @@
 #include <iostream>
 using namespace std;
 
-int main()
-{
-    int table_of_two[10] = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20};
-
-    for (int i = 0; i < 10; i++)
-    {
-        cout << table_of_two[i] << " ";
-    }
-    return 0;
-}
-
 // size of the array
 
 int main()
@@ -65,5 +54,37 @@ int main()
         ans = arr[i];
     }
     cout << ans;
+    return 0;
+}
+
+// Search element in the array
+int Search(int arr[], int K, int N)
+{
+    for (int i = 0; i < N; i++)
+    {
+        if (arr[i] == K)
+        {
+
+            return i;
+        }
+    }
+    return -1;
+}
+
+int main()
+{
+    int arr[] = {23, 56, 78, 98, 59};
+    int N = sizeof(arr) / sizeof(arr[0]);
+    int K = 98;
+
+    int result = Search(arr, K, N);
+    if (result != -1)
+    {
+        cout << "Element found at index " << result << endl;
+    }
+    else
+    {
+        cout << "Element not found" << endl;
+    }
     return 0;
 }
