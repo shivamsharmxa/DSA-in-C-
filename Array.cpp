@@ -88,3 +88,21 @@ int main()
     }
     return 0;
 }
+
+// Reverse an array
+
+int main()
+{
+    int arr[6] = {2, 5, 6, 7, 8, 9};
+    int start = 0, end = 5;
+
+    while (start < end)
+
+    {
+        swap(arr[start], arr[end]);
+        start++;
+        end--;
+    };
+    for (int i = 0; i < 6; i++)
+        cout << arr[i] << " ";
+}
