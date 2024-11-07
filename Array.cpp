@@ -106,33 +106,84 @@ using namespace std;
 //     for (int i = 0; i < 6; i++)
 //         cout << arr[i] << " ";
 // }
+// int main()
+// {
+//     int n;
+//     cout << "Enter the number: ";
+//     cin >> n;
+
+//     if (n <= 0)
+//     {
+//         cout << "Please enter a positive number greater than 0." << endl;
+//         return 0; // Exit if n is invalid
+//     }
+
+//     int arr[1000]; // Array to store Fibonacci numbers
+//     arr[0] = 0;    // The first Fibonacci number
+//     if (n > 1)
+//     {
+//         arr[1] = 1; // The second Fibonacci number (if n > 1)
+//     }
+
+//     // Calculate Fibonacci sequence for n > 2
+//     for (int i = 2; i < n; i++)
+//     {                                     // Loop runs until i < n
+//         arr[i] = arr[i - 1] + arr[i - 2]; // Fibonacci relation
+//     }
+
+//     // Print the nth Fibonacci number
+//     cout << "The " << n << "th Fibonacci number is: " << arr[n - 1] << endl;
+
+//     return 0;
+// }
+
+// int MissingElement(int arr[], int n)
+// {
+
+//     // calculate  sum of the element in the array
+//     int sum = 0;
+//     for (int i = 0; i < n - 1; i++)
+//     {
+//         sum += arr[i];
+//     }
+//     // calculate the sum of the n element
+//     int totalSum = n * (n + 1) / 2;
+
+//     // Return the missing element in the array
+//     return totalSum - sum;
+// }
+// int main()
+// {
+//     int arr[] = {2, 3, 4, 5};
+//     int n = 5;
+
+//     int result = MissingElement(arr, n);
+//     cout << result;
+// }
+
+// Rotate an array by one
+void Rotate(int arr[], int n)
+{
+    int last = arr[n - 1];
+
+    for (int i = n - 2; i >= 0; i--)
+    {
+        arr[i + 1] = arr[i];
+    }
+    arr[0] = last;
+}
+
 int main()
 {
-    int n;
-    cout << "Enter the number: ";
-    cin >> n;
+    int arr[] = {23, 45, 65, 78, 43};
+    int n = 5;
 
-    if (n <= 0)
+    Rotate(arr, n);
+
+    for (int i = 0; i < n; i++)
     {
-        cout << "Please enter a positive number greater than 0." << endl;
-        return 0; // Exit if n is invalid
+        cout << arr[i] << " ";
     }
-
-    int arr[1000]; // Array to store Fibonacci numbers
-    arr[0] = 0;    // The first Fibonacci number
-    if (n > 1)
-    {
-        arr[1] = 1; // The second Fibonacci number (if n > 1)
-    }
-
-    // Calculate Fibonacci sequence for n > 2
-    for (int i = 2; i < n; i++)
-    {                                     // Loop runs until i < n
-        arr[i] = arr[i - 1] + arr[i - 2]; // Fibonacci relation
-    }
-
-    // Print the nth Fibonacci number
-    cout << "The " << n << "th Fibonacci number is: " << arr[n - 1] << endl;
-
+    cout << endl;
     return 0;
 }
