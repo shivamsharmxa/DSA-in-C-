@@ -16,7 +16,9 @@ int main()
 {
 
     // create 2d array
-    int arr[3][4] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+    int arr1[3][4] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12};
+    int arr2[3][4] = {2, 5, 6, 8, 4, 3, 8, 9, 7, 11, 12, 78};
+    int ans[3][4];
 
     // print all the values in array row wise
 
@@ -31,14 +33,26 @@ int main()
     // find the given number in the array
     int x = 9;
 
+    // for (int row = 0; row < 3; row++)
+    //     for (int col = 0; col < 4; col++)
+    //     {
+    //         if (arr1[row][col] == x)
+    //         {
+    //             cout << "Yes";
+    //             return 0;
+    //         }
+    //     }
+    // cout << "No";
+
+    // Add 2 Matrix
+
     for (int row = 0; row < 3; row++)
         for (int col = 0; col < 4; col++)
         {
-            if (arr[row][col] == x)
-            {
-                cout << "Yes";
-                return 0;
-            }
+            ans[row][col] = arr1[row][col] + arr2[row][col];
         }
-    cout << "No";
+
+    for (int row = 0; row < 3; row++)
+        for (int col = 0; col < 4; col++)
+            cout << ans[row][col] << " ";
 }
