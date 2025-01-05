@@ -141,12 +141,41 @@ vector<int> pairSum(vector<int> nums, int target)
     return ans;
 }
 
+// better approach
+vector<int> BetterPair(vector<int> vec, int target)
+{
+    vector<int> ans;
+    int n = vec.size();
+    int start = 0;
+    int end = n - 1;
+
+    while (start < end)
+    {
+        int Ps = vec[start] + vec[end];
+        if (Ps > target)
+        {
+            end--;
+        }
+        else if (Ps < end)
+        {
+            start++;
+        }
+        else
+        {
+            ans.push_back(start);
+            ans.push_back(end);
+            return ans;
+        }
+    }
+    return ans;
+}
+
 int main()
 {
     vector<int> pair = {2, 7, 11, 15};
     int target = 21;
 
-    vector<int> ans = pairSum(pair, target);
+    vector<int> ans = BetterPair(pair, target);
     if (!ans.empty())
     {
         cout << "Indices: " << ans[0] << " " << ans[1] << endl;
