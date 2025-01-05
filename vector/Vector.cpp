@@ -84,39 +84,76 @@ using namespace std;
 
 // Prefix and Suffix
 
-int divide(vector<int> arr)
+// int divide(vector<int> arr)
+// {
+//     int Maxi = INT_MIN, prefix = 0, total_sum = 0, n = arr.size();
+
+//     // total sum
+//     for (int i = 0; i < n; i++)
+//     {
+//         total_sum += arr[i];
+//     }
+
+//     for (int i = 0; i < n; i++)
+//     {
+//         prefix += arr[i];
+//         if (total_sum == 2 * prefix)
+//         {
+//             return 1;
+//         }
+//     }
+//     return 0;
+// }
+
+// int main()
+// {
+//     int n;
+//     cout << "Enter the size of array :";
+//     cin >> n;
+
+//     vector<int> v(n);
+//     cout << "Enter the element in array :";
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> v[i];
+//     }
+
+//     cout << divide(v);
+// }
+
+vector<int> pairSum(vector<int> nums, int target)
 {
-    int Maxi = INT_MIN, prefix = 0, total_sum = 0, n = arr.size();
-
-    // total sum
-    for (int i = 0; i < n; i++)
-    {
-        total_sum += arr[i];
-    }
+    vector<int> ans;
+    int n = nums.size();
 
     for (int i = 0; i < n; i++)
     {
-        prefix += arr[i];
-        if (total_sum == 2 * prefix)
+        for (int j = i + 1; j < n; j++)
         {
-            return 1;
+            if (nums[i] + nums[j] == target)
+            {
+                ans.push_back(i);
+                ans.push_back(j);
+                return ans;
+            }
         }
     }
-    return 0;
+    return ans;
 }
 
 int main()
 {
-    int n;
-    cout << "Enter the size of array :";
-    cin >> n;
+    vector<int> pair = {2, 7, 11, 15};
+    int target = 21;
 
-    vector<int> v(n);
-    cout << "Enter the element in array :";
-    for (int i = 0; i < n; i++)
+    vector<int> ans = pairSum(pair, target);
+    if (!ans.empty())
     {
-        cin >> v[i];
+        cout << "Indices: " << ans[0] << " " << ans[1] << endl;
     }
-
-    cout << divide(v);
+    else
+    {
+        cout << "No valid pair found." << endl;
+    }
+    return 0;
 }
