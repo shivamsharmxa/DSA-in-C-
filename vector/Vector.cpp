@@ -121,68 +121,129 @@ using namespace std;
 //     cout << divide(v);
 // }
 
-vector<int> pairSum(vector<int> nums, int target)
-{
-    vector<int> ans;
-    int n = nums.size();
+// vector<int> pairSum(vector<int> nums, int target)
+// {
+//     vector<int> ans;
+//     int n = nums.size();
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i + 1; j < n; j++)
-        {
-            if (nums[i] + nums[j] == target)
-            {
-                ans.push_back(i);
-                ans.push_back(j);
-                return ans;
-            }
-        }
-    }
-    return ans;
-}
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int j = i + 1; j < n; j++)
+//         {
+//             if (nums[i] + nums[j] == target)
+//             {
+//                 ans.push_back(i);
+//                 ans.push_back(j);
+//                 return ans;
+//             }
+//         }
+//     }
+//     return ans;
+// }
 
-// better approach
-vector<int> BetterPair(vector<int> vec, int target)
-{
-    vector<int> ans;
-    int n = vec.size();
-    int start = 0;
-    int end = n - 1;
+// // better approach
+// vector<int> BetterPair(vector<int> vec, int target)
+// {
+//     vector<int> ans;
+//     int n = vec.size();
+//     int start = 0;
+//     int end = n - 1;
 
-    while (start < end)
-    {
-        int Ps = vec[start] + vec[end];
-        if (Ps > target)
-        {
-            end--;
-        }
-        else if (Ps < end)
-        {
-            start++;
-        }
-        else
-        {
-            ans.push_back(start);
-            ans.push_back(end);
-            return ans;
-        }
-    }
-    return ans;
-}
+//     while (start < end)
+//     {
+//         int Ps = vec[start] + vec[end];
+//         if (Ps > target)
+//         {
+//             end--;
+//         }
+//         else if (Ps < end)
+//         {
+//             start++;
+//         }
+//         else
+//         {
+//             ans.push_back(start);
+//             ans.push_back(end);
+//             return ans;
+//         }
+//     }
+//     return ans;
+// }
+
+// int main()
+// {
+//     vector<int> pair = {2, 7, 11, 15};
+//     int target = 21;
+
+//     vector<int> ans = BetterPair(pair, target);
+//     if (!ans.empty())
+//     {
+//         cout << "Indices: " << ans[0] << " " << ans[1] << endl;
+//     }
+//     else
+//     {
+//         cout << "No valid pair found." << endl;
+//     }
+//     return 0;
+// }
+// hashing
+
+// int main()
+// {
+//     int n;
+//     cin >> n;
+
+//     vector<int> arr(n); // Dynamically sized array
+//     cout << "Enter the elements of the array : " << endl;
+//     for (int i = 0; i < n; i++)
+//     {
+//         cin >> arr[i]; // Initialize array with user input
+//     }
+
+//     // Precompute the frequency of elements
+//     vector<int> hash(1001, 0); // Assuming the elements are in the range 0-1000
+//     for (int i = 0; i < n; i++)
+//     {
+//         hash[arr[i]] += 1;
+//     }
+
+//     int q;
+//     cin >> q;
+//     while (q--)
+//     {
+//         int number;
+//         cin >> number;
+
+//         // Fetch the frequency of the queried number
+//         cout << hash[number] << endl;
+//     }
+
+//     return 0;
+// }
+// string through hashing
 
 int main()
 {
-    vector<int> pair = {2, 7, 11, 15};
-    int target = 21;
+    string s;
+    cin >> s;
 
-    vector<int> ans = BetterPair(pair, target);
-    if (!ans.empty())
+    // precompute
+    int hash[26] = {0};
+    for (int i = 0; i < s.size(); i++)
     {
-        cout << "Indices: " << ans[0] << " " << ans[1] << endl;
+        hash[s[i] - 'a']++;
     }
-    else
+
+    int q;
+    cin >> q;
+
+    while (q--)
     {
-        cout << "No valid pair found." << endl;
+        char c;
+        cin >> c;
+
+        // fetch
+        cout << hash[c - 'a'] << endl;
     }
     return 0;
 }
