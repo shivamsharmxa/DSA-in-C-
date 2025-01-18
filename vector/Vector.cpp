@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -222,28 +223,62 @@ using namespace std;
 // }
 // string through hashing
 
+// int main()
+// {
+//     string s;
+//     cin >> s;
+
+//     // precompute
+//     int hash[26] = {0};
+//     for (int i = 0; i < s.size(); i++)
+//     {
+//         hash[s[i] - 'a']++;
+//     }
+
+//     int q;
+//     cin >> q;
+
+//     while (q--)
+//     {
+//         char c;
+//         cin >> c;
+
+//         // fetch
+//         cout << hash[c - 'a'] << endl;
+//     }
+//     return 0;
+// }
+
 int main()
 {
-    string s;
-    cin >> s;
+    int n;
+    cin >> n;
 
-    // precompute
-    int hash[26] = {0};
-    for (int i = 0; i < s.size(); i++)
+    cout << "Enter the elements of the array:" << endl;
+
+    int arr[n];
+    for (int i = 0; i < n; i++)
+    {                  // Fixed the loop syntax error here
+        cin >> arr[i]; // Corrected to take input instead of printing uninitialized values
+    }
+
+    // Precompute frequency using map
+    map<int, int> mpp; // Corrected the map declaration
+    for (int i = 0; i < n; i++)
     {
-        hash[s[i] - 'a']++;
+        mpp[arr[i]]++; // Fixed incorrect usage of map variable
     }
 
     int q;
     cin >> q;
-
     while (q--)
     {
-        char c;
-        cin >> c;
+        int number;
+        cin >> number;
 
-        // fetch
-        cout << hash[c - 'a'] << endl;
+        // Fetch the frequency of the queried number
+        cout << mpp[number] << endl;
     }
+
     return 0;
 }
